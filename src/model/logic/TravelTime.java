@@ -1,0 +1,75 @@
+package model.logic;
+
+public class TravelTime implements Comparable<TravelTime>
+{
+	//Atributos
+	private int trimestre;
+	
+	private int sourceID;
+	
+	private int dstID;
+	
+	private int hod;
+	
+	private double meanTravelTime;
+	
+	private double standardDeviationTravelTime;
+
+
+	public TravelTime(int trimestre,int sourceID, int dstID, int hod, double meanTravelTime, double standardDeviationTravelTime) 
+	{
+		super();
+		this.trimestre=trimestre;
+		this.sourceID = sourceID;
+		this.dstID = dstID;
+		this.hod = hod;
+		this.meanTravelTime = meanTravelTime;
+		this.standardDeviationTravelTime = standardDeviationTravelTime;
+
+	}
+
+	public int getTrimestre()
+	{
+		return trimestre;
+	}
+	public int getSourceID() {
+		return sourceID;
+	}
+
+	public int getDstID() {
+		return dstID;
+	}
+
+	public int getHod() {
+		return hod;
+	}
+
+	public double getMeanTravelTime() {
+		return meanTravelTime;
+	}
+
+	public double getStandardDeviationTravelTime() {
+		return standardDeviationTravelTime;
+	}
+
+	
+		public int compareTo( TravelTime viaje) 
+	{
+		int x = 0; 
+		if( meanTravelTime < viaje.meanTravelTime) 
+		{
+			x= -1;
+		}
+		else if( meanTravelTime > viaje.meanTravelTime) 
+		{
+			x=  1;
+		}
+		
+		return x; 
+	}
+	
+	
+	
+	
+	
+}	

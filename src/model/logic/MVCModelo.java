@@ -1,5 +1,11 @@
 package model.logic;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.opencsv.CSVReader;
+
 import model.data_structures.ArregloDinamico;
 import model.data_structures.IArregloDinamico;
 
@@ -11,6 +17,8 @@ public class MVCModelo {
 	/**
 	 * Atributos del modelo del mundo
 	 */
+	
+	//CAMBIAR POR ESTRUCTURA A USAR
 	private IArregloDinamico datos;
 	
 	/**
@@ -38,35 +46,72 @@ public class MVCModelo {
 	{
 		return datos.darTamano();
 	}
+	
+	public void cargarArchivos() throws IOException
+	{
+		CSVReader reader = null;
+		try 
+		{
+			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-HourlyAggregate.csv"));
 
-	/**
-	 * Requerimiento de agregar dato
-	 * @param dato
-	 */
-	public void agregar(String dato)
-	{	
-		datos.agregar(dato);
+			
+			reader.readNext();
+
+			
+			for(String[] nextLine : reader)
+			{
+				TravelTime actual= new TravelTime(1, Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
+				//datos.agregar(actual);
+			}
+
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		finally{
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		try 
+		{
+			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-HourlyAggregate.csv"));
+
+			
+			reader.readNext();
+
+			
+			for(String[] nextLine : reader)
+			{
+				TravelTime actual= new TravelTime(2,Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
+				//lista.agregar(actual);
+			}
+
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		finally{
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		
 	}
-	
-	/**
-	 * Requerimiento buscar dato
-	 * @param dato Dato a buscar
-	 * @return dato encontrado
-	 */
-	public String buscar(String dato)
-	{
-		return datos.buscar(dato);
-	}
-	
-	/**
-	 * Requerimiento eliminar dato
-	 * @param dato Dato a eliminar
-	 * @return dato eliminado
-	 */
-	public String eliminar(String dato)
-	{
-		return datos.eliminar(dato);
-	}
+
+
 
 
 }
