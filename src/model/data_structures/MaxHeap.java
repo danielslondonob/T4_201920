@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public class MaxHeapCP<T extends Comparable<T>> implements IMaxHeapCP<T>
+public class MaxHeap<T extends Comparable<T>> implements IMaxHeapCP<T>
 {
 	//Tomado de algs4.princeton
 
