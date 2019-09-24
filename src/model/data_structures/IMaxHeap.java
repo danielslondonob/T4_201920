@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public interface IMaxHeapCP<T extends Comparable<T>>
+public interface IMaxHeap<T extends Comparable<T>>
 {
 	// M�todos
 
