@@ -25,10 +25,8 @@ public class PruebasColaPrioridad extends TestCase
 	private MaxHeapCP<Integer> heap;
 	
 	//Trimestre, sourceId , dstID, hod, meanTravelTime, standardDeviationTravelTime
-	//Cambiar el metodo insert para que inserte objetos de tipo TravelTime
 	
-	//RELLENAR CON CAMPOS REALES DEL CADASTRAL 
-	private TravelTime elem1 = new TravelTime( );
+	private TravelTime elem1 = new TravelTime(  );
 
 	private TravelTime elem2 = new TravelTime( );
 
@@ -57,8 +55,8 @@ public class PruebasColaPrioridad extends TestCase
 		heap = new MaxHeapCP();
 
 
-		cola.agregar(elem[1]);
-		heap.insert(elem[1]);
+		cola.insert2(elem1);
+		heap.insert2(elem1);
 	}
 
 	/**
@@ -69,14 +67,14 @@ public class PruebasColaPrioridad extends TestCase
 		cola = new MaxColaCP();
 		heap = new MaxHeapCP();
 
-		cola.agregar(elem3);
-		heap.insert(elem1);
+		cola.insert2(elem3);
+		heap.insert2(elem1);
 
-		cola.agregar(elem2);
-		heap.insert(elem2);
+		cola.insert2(elem2);
+		heap.insert2(elem2);
 
-		cola.agregar(elem1);
-		heap.insert(elem3);
+		cola.insert2(elem1);
+		heap.insert2(elem3);
 
 	}
 
@@ -88,40 +86,40 @@ public class PruebasColaPrioridad extends TestCase
 		cola = new MaxColaCP();
 		heap = new MaxHeapCP();
 
-		cola.agregar(elem2);
-		heap.insert(elem2);
+		cola.insert2(elem2);
+		heap.insert2(elem2);
 
-		cola.agregar(elem3);
-		heap.insert(elem3);
+		cola.insert2(elem3);
+		heap.insert2(elem3);
 
-		cola.agregar(elem1);
-		heap.insert(elem1);
+		cola.insert2(elem1);
+		heap.insert2(elem1);
 
 	}
 
 	/**
-	 *  Escenario 4: Construye una cola y un heap. Agregaga dos elementos desordenadamente e intenta agregar uno reptetido
+	 *  Escenario 4: Construye una cola y un heap. Agregaga dos elementos desordenadamente e intenta insert2 uno reptetido
 	 */
 	public void setupEscenario4() 
 	{
 		cola = new MaxColaCP();
 		heap = new MaxHeapCP();
 
-		cola.agregar(elem1);
-		heap.insert(elem1);
+		cola.insert2(elem1);
+		heap.insert2(elem1);
 
-		cola.agregar(elem2);
-		heap.insert(elem2);
+		cola.insert2(elem2);
+		heap.insert2(elem2);
 
-		cola.agregar(elem2);
-		heap.insert(elem2);
+		cola.insert2(elem2);
+		heap.insert2(elem2);
 	}
 
 
 	/**
 	 * Prueba 1: verfica que se puedan agragr elementos a la cola de prioridad basada en Queue y que queden ordenados <br>
 	 * <b>Métodos a probar:</b> <br>
-	 * MaxColaCP.agregar<br>
+	 * MaxColaCP.insert2<br>
 	 * darNumElementos<br>
 	 * isEmpty
 	 * <b> Casos de prueba: </b><br>
@@ -130,7 +128,7 @@ public class PruebasColaPrioridad extends TestCase
 	 * 3. Se agregan 3 elementos a lista desordenadamente.
 	 * 4. Se intentan agragar elementos repetidos
 	 */
-	public void testAgregar()
+	public void testinsert2()
 	{
 		//Caso de prueba 1:
 		setupEscenario1();
@@ -162,9 +160,9 @@ public class PruebasColaPrioridad extends TestCase
 
 	}
 	/**
-	 * Prueba 2: verfica que se puedan agragr elementos a la cola de prioridad basada en Heap y que el máximo queda en la posición adecuada <br>
+	 * Prueba 2: verfica que se puedan agregar elementos a la cola de prioridad basada en Heap y que el máximo queda en la posición adecuada <br>
 	 * <b>Métodos a probar:</b> <br>
-	 * MaxHeapCP.insert<br>
+	 * MaxHeapCP.insert2<br>
 	 * size<br>
 	 * isEmpty
 	 * <b> Casos de prueba: </b><br>
@@ -173,7 +171,7 @@ public class PruebasColaPrioridad extends TestCase
 	 * 3. Se agregan 3 elementos a lista desordenadamente.
 	 * 4. Se intentan agragar elementos repetidos
 	 */
-	public void testInsert()
+	public void testinsert22()
 	{
 
 		//Caso de prueba 1:
@@ -184,18 +182,18 @@ public class PruebasColaPrioridad extends TestCase
 		//Caso de prueba 2:
 		setupEscenario2();
 		assertTrue("El tamañaño de la lista deberia ser tres", heap.size() ==3);
-		assertTrue("El elemento con la mayor proridad no está en la posición adecuada",elem3.compareTo(heap.darMax())==0);
+		assertEquals("El elemento con la mayor proridad no está en la posición adecuada",elem3.compareToo(heap.darMax()));
 
 
 		//Caso de prueba 3:
 		setupEscenario3();
 		assertTrue("El tamaña de la lista deberia ser tres", heap.size()==3);
-		assertTrue("El elemento está en la posición equivocada",elem3.compareTo(heap.darMax())==0);
+		assertEquals("El elemento está en la posición equivocada",elem3.compareToo(heap.darMax().intValue()));
 
 		//Caso de prueba4:
 		setupEscenario4();
 		assertTrue("El tamañaño de la lista deberia ser dos", heap.size()==3);
-		assertTrue("El elemento está en la posición equivocada",elem2.compareTo(heap.darMax())==0);
+		assertTrue("El elemento está en la posición equivocada",elem2.compareToo(heap.darMax())==0);
 
 	}
 
