@@ -1,5 +1,7 @@
 package model.data_structures;
 
+import model.logic.TravelTime;
+
 public class MaxHeapCP<T extends Comparable<T>> implements IMaxPriorityQueue<T>
 {
 	//Tomado de algs4.princeton
@@ -49,6 +51,20 @@ public class MaxHeapCP<T extends Comparable<T>> implements IMaxPriorityQueue<T>
 				pq[i] = copia[i];
 		}
 		pq[++N] = v;
+		swim(N);
+	}
+	
+	public void insert2(TravelTime v)
+	{
+		if(N == max)
+		{
+			max *= 2;
+			T[] copia = pq;
+			pq = (T[]) new Comparable[max+1];
+			for(int i = 0; i <= N; i++)
+				pq[i] = copia[i];
+		}
+		pq[++N] = (T) v;
 		swim(N);
 	}
 
