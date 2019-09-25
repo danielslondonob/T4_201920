@@ -77,6 +77,67 @@ public class MaxColaCP <T extends Comparable<T>> implements IMaxPriorityQueue<T>
         pq[j] = swap;
     }
     
+    private class ListIterator <T extends Comparable<T>> implements Iterator<T>
+	{
+		//---------------------------------
+		// Atributos
+		//---------------------------------
+
+		Node<T> actual;
+
+		Node<T> proximo;
+
+		Node<T> anterior;
+
+		//-----------------------------------
+		// MÃ©todos
+		//-----------------------------------
+
+		ListIterator(Node<T> primero)
+		{
+			actual= null;
+			proximo=primero;
+
+		}
+
+
+		@Override
+		/**
+		 * Retorna si el elemento acuatal, el Ãºltimo visitado tiene siguiente o no. 
+		 */
+		public boolean hasNext() 
+		{
+			boolean retorno = false;
+
+			if (proximo != null)
+			{
+				retorno= true;
+			}
+
+			return retorno;
+		}
+
+		@Override
+		/**
+		 * Retorno el elemento almacenado en el nodo siguiente 
+		 * Re asigna lso atributos de tal manera que ahora el actual sea el que antes fue prÃ³ximo.
+		 */
+		public T next() 
+		{
+
+			if (proximo == null)
+			{
+				throw new NoSuchElementException("No hay prÃ³ximo");
+			}
+
+			T elemento = proximo.darElemento();
+			anterior = actual;
+			actual= proximo;
+			proximo = proximo.darSiguiente();
+
+			return elemento;
+		}
+	}
     
 
 }
