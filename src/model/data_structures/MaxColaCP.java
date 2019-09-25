@@ -17,6 +17,7 @@ public class MaxColaCP <T extends Comparable<T>> implements IMaxPriorityQueue<T>
     private T[] pq;      // elements
     private int n;         // number of elements
     private int max;
+    private Node<T> actual; 
 
     // set inititial size of heap to hold size elements
     public MaxColaCP() {
@@ -75,6 +76,16 @@ public class MaxColaCP <T extends Comparable<T>> implements IMaxPriorityQueue<T>
         T swap = pq[i];
         pq[i] = pq[j];
         pq[j] = swap;
+    }
+    
+    /**
+     * Returns an iterator that iterates over the UBERTrips in this queue in FIFO order.
+     *
+     * @return an iterator that iterates over the UBERTrips in this queue in FIFO order
+     */
+    public Iterator<T> iterator()  
+    {
+		return (Iterator<T>) new ListIterator(actual);
     }
     
     private class ListIterator <T extends Comparable<T>> implements Iterator<T>
