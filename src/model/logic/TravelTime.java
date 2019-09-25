@@ -15,7 +15,7 @@ public class TravelTime implements Comparable<TravelTime>
 	
 	private double standardDeviationTravelTime;
 
-
+	
 	public TravelTime(int trimestre,int sourceID, int dstID, int hod, double meanTravelTime, double standardDeviationTravelTime) 
 	{
 		super();
@@ -67,6 +67,21 @@ public class TravelTime implements Comparable<TravelTime>
 		
 		return x; 
 	}
+		
+		public int compareToo( int integer) 
+		{
+			int x = 0; 
+			if( meanTravelTime < integer) 
+			{
+				x= -1;
+			}
+			else if( meanTravelTime > integer) 
+			{
+				x=  1;
+			}
+			
+			return x; 
+		}
 	
 	
 	
