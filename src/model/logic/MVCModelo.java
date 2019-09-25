@@ -53,21 +53,21 @@ public class MVCModelo {
 			reader.readNext();
 
 			
-//			for(String[] nextLine : reader)
-//			{
-//				TravelTime actual= new TravelTime(1, Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
-//				heap.insert(actual);
-//				cola.insert(actual);
-//			}
-			int i=1;
-			while(i<40)
+			for(String[] nextLine : reader)
 			{
-				String [] nextLine= reader.readNext();
 				TravelTime actual= new TravelTime(1, Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
 				heap.insert(actual);
 				cola.insert(actual);
-				i++;
 			}
+//			int i=1;
+//			while(i<40)
+//			{
+//				String [] nextLine= reader.readNext();
+//				TravelTime actual= new TravelTime(1, Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
+//				heap.insert(actual);
+//				cola.insert(actual);
+//				i++;
+//			}
 			
 
 		} 
@@ -93,22 +93,22 @@ public class MVCModelo {
 			reader.readNext();
 
 			
-//			for(String[] nextLine : reader)
-//			{
-//				TravelTime actual= new TravelTime(2,Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
-//				heap.insert(actual);
-//				cola.insert(actual);
-//			}
-			
-			int i=1;
-			while(i<40)
+			for(String[] nextLine : reader)
 			{
-				String [] nextLine= reader.readNext();
-				TravelTime actual= new TravelTime(2, Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
+				TravelTime actual= new TravelTime(2,Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
 				heap.insert(actual);
 				cola.insert(actual);
-				i++;
 			}
+			
+//			int i=1;
+//			while(i<40)
+//			{
+//				String [] nextLine= reader.readNext();
+//				TravelTime actual= new TravelTime(2, Integer.parseInt(nextLine[0]),Integer.parseInt(nextLine[1]),Integer.parseInt(nextLine[2]),Double.parseDouble(nextLine[3]),Double.parseDouble(nextLine[4]));
+//				heap.insert(actual);
+//				cola.insert(actual);
+//				i++;
+//			}
 
 		} 
 		catch (FileNotFoundException e) 
