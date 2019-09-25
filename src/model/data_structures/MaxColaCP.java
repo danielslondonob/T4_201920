@@ -3,6 +3,8 @@ package model.data_structures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import model.logic.TravelTime;
+
 
 
 
@@ -48,6 +50,20 @@ public class MaxColaCP <T extends Comparable<T>> implements IMaxPriorityQueue<T>
     	
     	pq[n++] = x;   
     }
+    
+    public void insert2(TravelTime x)  
+    { 
+    	if(n == max)
+		{
+			max *= 2;
+			T[] copia = pq;
+			pq = (T[]) new Comparable[max+1];
+			for(int i = 0; i <= n; i++)
+				pq[i] = copia[i];
+		}
+    	
+    	pq[n++] = (T) x;   
+    }
 
     public T delMax() 
     {
@@ -83,9 +99,9 @@ public class MaxColaCP <T extends Comparable<T>> implements IMaxPriorityQueue<T>
      *
      * @return an iterator that iterates over the UBERTrips in this queue in FIFO order
      */
-    public Iterator<T> iterator()  
+    public Iterator<TravelTime> iterator()  
     {
-		return (Iterator<T>) new ListIterator(actual);
+		return (Iterator<TravelTime>) new ListIterator(actual);
     }
     
     private class ListIterator <T extends Comparable<T>> implements Iterator<T>
