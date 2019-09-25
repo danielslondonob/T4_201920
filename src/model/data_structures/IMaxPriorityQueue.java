@@ -9,13 +9,13 @@ public interface IMaxPriorityQueue <T extends Comparable<T>>
 	 * diferente, el elemento debe actualizarse en la cola de prioridad. 
 	 * @param v Elemento a introducir. 
 	 */
-	public void agregar(T v);
+	public void insert(T v);
 
 	/**
 	 * Obtiene el elemento m�ximo sin sacarlo de la cola .
 	 * @return El elemento m�ximo de la cola, null si la cola est� vac�a. 
 	 */
-	public T max();
+	public T darMax();
 
 	/**
 	 * Saca el elemento m�ximo de la cola y lo retorna.

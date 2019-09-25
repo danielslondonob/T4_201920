@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public class MaxHeap<T extends Comparable<T>> implements IMaxHeapCP<T>
+public class MaxHeapCP<T extends Comparable<T>> implements IMaxPriorityQueue<T>
 {
 	//Tomado de algs4.princeton
 
@@ -56,7 +56,7 @@ public class MaxHeap<T extends Comparable<T>> implements IMaxHeapCP<T>
 	 * Obtiene el elemento m�ximo sin sacarlo de la cola .
 	 * @return El elemento m�ximo de la cola, null si la cola est� vac�a. 
 	 */
-	public T max()
+	public T darMax()
 	{
 		return pq[1];
 	}
@@ -147,6 +147,12 @@ public class MaxHeap<T extends Comparable<T>> implements IMaxHeapCP<T>
 	 */
 	public int size()
 	{
+		return N;
+	}
+
+	@Override
+	public int darNumElementos() {
+
 		return N;
 	}
 }
