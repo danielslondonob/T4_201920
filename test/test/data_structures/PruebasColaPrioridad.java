@@ -26,12 +26,11 @@ public class PruebasColaPrioridad extends TestCase
 	
 	//Trimestre, sourceId , dstID, hod, meanTravelTime, standardDeviationTravelTime
 	
-	private TravelTime elem1 = new TravelTime(  );
+	private TravelTime elem1 = new TravelTime(1, 4, 5, 13, 1440.57, 444.47  );
 
-	private TravelTime elem2 = new TravelTime( );
+	private TravelTime elem2 = new TravelTime(1, 3, 44, 15, 2132.89, 296.54 );
 
-	private TravelTime elem3 = new TravelTime( );
-
+	private TravelTime elem3 = new TravelTime(1, 6, 48, 10, 1702.68, 462.69 );
 	//-----------------------------------------------------------------
 	// Metodos
 	// -----------------------------------------------------------------
