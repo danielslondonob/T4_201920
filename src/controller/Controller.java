@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.util.Scanner;
 
+import model.data_structures.MaxColaCP;
+import model.data_structures.MaxHeapCP;
 import model.logic.MVCModelo;
 import model.logic.TravelTime;
 import view.MVCView;
@@ -47,14 +49,27 @@ public class Controller {
 				case 1:
 					System.out.println("Ingrese un número de viajes."); 
 					int n= lector.nextInt();
-					TravelTime[] muestra=modelo.generarMuestra(n);
+					TravelTime[] muestraHeap=modelo.generarMuestraHeap(n);
 					
 					System.out.println("--------- \n Generar muestra \n---------"); 
 					
 					int i=0;
 					while(i<n)
 					{
-						System.out.println("Tiempo promedio: " +muestra[i].getMeanTravelTime()); 
+						System.out.println("Tiempo promedio: " +muestraHeap[i].getMeanTravelTime()); 
+						i++;
+					}
+					
+					System.out.println("");
+					
+					TravelTime[] muestraCola=modelo.generarMuestraCola(n);
+					
+					System.out.println("--------- \n Generar muestra \n---------"); 
+					
+					i=0;
+					while(i<n)
+					{
+						System.out.println("Tiempo promedio: " +muestraCola[i].getMeanTravelTime()); 
 						i++;
 					}
 					
@@ -96,7 +111,18 @@ public class Controller {
 					}
 					
 					break;
-				case 3: 
+				case 3:
+					System.out.println("Ingrese el número de tiempos a agregar e eliminar");
+					int n3= lector.nextInt();
+					
+					MaxHeapCP h=modelo.agregarMuestraHeap(n3);
+					MaxColaCP c=modelo.agregarMuestraCola(n3);
+					
+					modelo.eliminarMuestraHeap(h,n3);
+					modelo.eliminarMuestraCola(c,n3);
+
+					break;
+				case 4: 
 					System.out.println("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();
 					fin = true;
